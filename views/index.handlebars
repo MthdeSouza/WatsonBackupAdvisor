@@ -1,0 +1,75 @@
+<html>
+<head>
+  <base href="/">
+  <title>Ask Celly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:image" content="conversation.svg" />
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="w3ds/w3ds.css">
+  <link rel="stylesheet" href="css/www.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/loader.css">
+{{#if external}}
+<link rel="stylesheet" href="css/{{external}}.style.css">
+<link rel="stylesheet" href="css/external.css">
+{{/if}}
+</head>
+<body>
+  <div id="view-change-button" class="button" onclick="PayloadPanel.togglePanel(event, this)" {{#unless debug}}style="display: none;"{{/unless}}>
+    <img class="option full" src="../img/Chat_Button.png">
+    <img class="option not-full" src="../img/Code_Button.png">
+  </div>
+  <div id="headerExternal" class="ds-col-12" style=" background-color: white; display: block">
+  </div>
+  <div id="contentParent" class="responsive-columns-wrapper">
+    <div id="chat-column-holder" class="responsive-column content-column">
+      <span id="lightSwitch" onclick="switchColor()" class="ds-icon-size-medium ds-icon-view-m-l" style="right: 40%;"></span>
+      <div class="chat-column">
+        <div id="cellyPhoto" class="userPhoto"></div>
+        <div id="cellyVoice" onclick="switchVoice()">
+          <span class="voiceOff ds-icon-volume-off-fill-m-l"></span>
+          <span class="voiceSwitch"></span>
+          <span class="voiceOn ds-icon-volume-3-fill-m-l"></span>
+        </div>
+
+        {{#if external}}
+        <span id="title">{{#if message}} {{message}} {{else}} Hi, I am celly, How can I celp you? {{/if}}</span>
+        <div id="minimize"><div id="min"></div><div id="res"></div></div>
+        <script src="js/external.script.js"></script>
+        {{/if}}
+
+        <div id="userPhoto" class="userPhoto"></div>
+        <div id="scrollingChat"></div>
+        <label for="textInput" class="inputOutline">
+          <input id="textInput" class="input responsive-column"
+            placeholder="Type something" type="text"
+            onkeydown="ConversationPanel.inputKeyDown(event, this)">
+        </label>
+        <div id="leftPoint" class="triangle">
+          <div class="triangle"></div>
+        </div>
+        <div id="rightPoint" class="triangle">
+          <div class="triangle"></div>
+        </div>
+        <div id="feedbackButtons"></div>
+      </div>
+    </div>
+    <div id="payload-column" class="fixed-column content-column" {{#unless debug}}style="display: none;"{{/unless}}>
+      <div id="payload-initial-message">
+        Type something to see the output
+      </div>
+      <div id="payload-request" class="payload"></div>
+      <div id="payload-response" class="payload"></div>
+      <button id="restartChat" class="ibm-btn-pri ibm-btn-blue-50" onclick="restartChat()">Clear</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/conversation.js"></script>
+  <script src="js/payload.js"></script>
+  <script src="js/global.js"></script>
+</body>
+</html>

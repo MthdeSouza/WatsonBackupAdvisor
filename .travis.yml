@@ -1,0 +1,28 @@
+language: node_js
+dist: trusty
+sudo: required
+node_js: 6
+script:
+- npm run test
+cache:
+  directories:
+  - node_modules
+env:
+  global:
+  - CF_APP=celeste-conversation
+  - CF_API=https://api.w3ibm.bluemix.net
+  - CF_ORGANIZATION=IBM_DST_BACKUP
+  - CF_SPACE=dev
+before_deploy: npm install -g cf-blue-green
+deploy:
+  provider: cloudfoundry
+  api: https://api.w3ibm.bluemix.net
+  username: michelfr@br.ibm.com
+  password:
+    secure: M8O/oVnuLTqxVFoos5V69xgzL5GW80UTMGMvy3Iy+ZrSTHdorMyZd9+7ZsFMAijvG1FPtjgdtUkwxI52jn45cfqTNV2nduJF/gwc1plZsQPIvi9SvaznNJleHfQbTL+9k4kek10OOHoUKA/XH0S8YadX2tj6YQ94ZhLKnjCBMsY1QWryjR2xI3yLRfjZNljKThDIFLiAdY4/SMZ4+4BHjXIgJ9eUyH4TItmGxePGqIjC6s4iaD78Dk4+oxNy4nKbP+VJDWLROvX6y35CZjRDZzmPwjkXTDCRK2pEvBB0MT5OOLj9X04tOXKcy8Ipv8bTwGcgax5j1KIefihkowfXw/FtHkBIDrufyBt0C83LK1KIAqrVn2aAj27RFubc5ZPwqEwlE6h5D8MyfsaqRejJuL0sfcMXKCuFU469/WeGUn5NFIoLxPNHgoIChtloPhSsd4WwizrQhe4XBqng+756vA8BfliRrhPx0YFxvIl5aeq7Pxf8BpGy7j4aYHsdq7rgHq638Mt6OyCBYQhlUHWYeSEwAJSUAC+stirwUAjOK3FpUAL2O6hfHVdi4fs0I9/3avltLk4zi0Q7Ldg+NvvFFyFfyZD5kL6q6kJz9L7vumNc+yr5dRjVBewsw7LRewoY7AbI7VXaY4orFPK4P1Nzlxoig3qteYKz0fpFe1k54GQ=
+  organization: IBM_DST_BACKUP
+  space: dev
+  on:
+    repo: WatsonBackupAdvisor/WBA
+after_failure:
+- cat /home/travis/.npm/_logs/*.log

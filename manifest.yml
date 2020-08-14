@@ -1,0 +1,19 @@
+---
+declared-services:
+  Conversation-hz:
+    label: conversation
+    plan: free
+applications:
+- name: Celeste
+  disk_quota: 1024M
+  routes:
+  - route: askcelly.w3ibm.mybluemix.net
+  instances: 1
+  memory: 512M
+  services:
+  - Conversation-hz
+  env:
+    NPM_CONFIG_PRODUCTION: false
+#env:
+#    APP_HOST:w3id-saml-demo.w3ibm.mybluemix.net
+#    XML_CERT: {base64-encoded PKCS#8 key without header/footer}

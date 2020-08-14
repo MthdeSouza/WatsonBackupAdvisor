@@ -1,0 +1,42 @@
+<html>
+<head>
+  <style>
+  #chat{
+    height: 500px;
+    width: 400px;
+    position:absolute;
+    bottom: -5px;
+    right: 20px;
+    max-height: 90%;
+  }
+  </style>
+</head>
+<link rel="stylesheet" href="css/new.css">
+<body style="margin: 0; overflow: hidden;" onload="loaded()">
+<script>
+function loaded(){
+  // var frame = document.querySelector("#chat");
+  // var doc = (frame.contentWindow.document || frame.contentDocument);
+  setTimeout(()=>{document.querySelector("#chat").contentDocument.querySelector("#minimize").onclick = minimize},500)
+
+}
+function minimize(){
+  var chat = document.querySelector("#chat").contentDocument
+  if(document.querySelector("#chat").style.height){
+    document.querySelector("#chat").style.height = ""
+    chat.querySelector("#cellyVoice").style.display = "block"
+    chat.querySelector("#minimize #min").style.display = "block"
+    chat.querySelector("#minimize #res").style.display = "none"
+  }else {
+    document.querySelector("#chat").style.height = "30px"
+    chat.querySelector("#cellyVoice").style.display = "none"
+    chat.querySelector("#minimize #min").style.display = "none"
+    chat.querySelector("#minimize #res").style.display = "block"
+  }
+}
+</script>
+
+<iframe src="https://appops-dev.inmbzp7033.in.dst.ibm.com/" style="border: 0; width: 100%; height: 100%;">Your browser doesn't support iFrames.</iframe>
+<iframe id="chat" src="/external/appops" >Your browser doesn't support iFrames.</iframe>
+</body>
+</html>

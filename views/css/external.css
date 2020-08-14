@@ -1,0 +1,94 @@
+#cellyPhoto{
+  /*background-color: var(--background-color);*/
+  background-image: url("../img/CellyAvatar/Watson_Avatar_Pos_RGB.png");
+  width: 25px;
+  height: 25px;
+  top: -24px;
+  left: 5px;
+}
+#cellyVoice{
+  width: 30px;
+  height: 14px;
+  top: -17px;
+  left: calc( 100% - 85px );
+  font-size: x-small;
+}
+#cellyVoice span {
+    top: 2px;
+}
+#cellyVoice .voiceOff {
+    left: -13px;
+}
+#cellyVoice .voiceOn {
+    left: 31px;
+}
+#userPhoto{
+
+  display: none
+}
+#rightPoint{
+
+  display: none
+}
+#leftPoint{
+
+  display: none
+}
+#lightSwitch{
+  display: none
+}
+#chat-column-holder {
+    overflow: hidden;
+}
+#title{
+  position: absolute;
+  top: -21px;
+  left: 40px;
+}
+#minimize{
+  position: absolute;
+  top: -22px;
+  right: 15px;
+  padding: 1px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+#minimize:hover{
+  border-color: var(--background-color);
+}
+#minimize div{
+  width: 15px;
+  height: 16px;
+  border-bottom: 3px solid var(--background-color);
+}
+#minimize #res{
+  border: 1px solid var(--background-color);
+  border-top-width: 4px;
+  display: none;
+}
+body, html {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  background: none transparent !important;
+}
+#contentParent {
+  border-color: var(--chat-border-color);
+  border-style: solid;
+  border-width: 0px 1px;
+  border-radius: 15px 15px 0px 0px;
+  background-image: linear-gradient(to bottom,var(--chat-border-color) 30px, var(--background-color)) !important;
+}
+div.chat-column{
+  border: none;
+  max-width: 100%;
+  padding: 0px;
+  margin-top: 25px;
+  border-radius: 15px;
+}
+
+/*border-color: var(--chat-border-color);
+border-style: solid;
+border-width: 5px 4px 0px 4px;
+border-radius: 15px 15px 0px 0px;*/

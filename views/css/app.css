@@ -1,0 +1,649 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica Neue for IBM, Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  word-wrap: break-word;
+  line-height: 1.25rem;
+}
+
+#view-change-button {
+  display: inline-block;
+  position: absolute;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 1.5625rem;
+  background: #AB72F8;
+  top: 0.3125rem;
+  right: 0.3125rem;
+  line-height: 3.125rem;
+  vertical-align: middle;
+}
+
+#view-change-button img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+#view-change-button:not(.full) .not-full {
+  display: inline-block;
+}
+
+#view-change-button.full .full {
+  display: inline-block;
+}
+
+#contentParent {
+  height: 100%;
+}
+
+.responsive-columns-wrapper {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  -ms-display: flex;
+  -ms-flex-direction: row;
+}
+
+.responsive-column {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: auto;
+}
+
+#chat-column-holder {
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.chat-column {
+  height: 100%;
+  padding: 0.9375rem 0 0.625rem 0;
+  margin: auto;
+  text-align: left;
+  max-width: calc(60% - 20px);
+  min-width: 9.375rem;
+}
+
+#scrollingChat {
+  margin: 0.75rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: calc(100% - 4rem);
+  padding-right: 2px;
+  border-radius: 20px 20px 2px 2px;
+}
+
+.message-inner {
+  word-break: break-word;
+  opacity: 0;
+  margin-top: 0.9375rem;
+  -webkit-transition-property: opacity, margin-top;
+  -webkit-transition-duration: 0.75s;
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-property: opacity, margin-top;
+  -moz-transition-duration: 0.75s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-property: opacity, margin-top;
+  -o-transition-duration: 0.75s;
+  -o-transition-timing-function: ease-in;
+  -ms-transition-property: opacity, margin-top;
+  -ms-transition-duration: 0.75s;
+  -ms-transition-timing-function: ease-in;
+  transition-property: opacity, margin-top;
+  transition-duration: 0.75s;
+  transition-timing-function: ease-in;
+}
+
+.load .message-inner {
+  opacity: 1;
+  margin-top: 0.3125rem;
+}
+
+.from-user {
+  text-align: right;
+}
+
+.from-user .message-inner {
+  position: relative;
+  font-size: 1rem;
+  color: var(--text-color);
+  letter-spacing: 0.015rem;
+  line-height: 1.3125rem;
+  background: var(--chat-border-color);
+  border-radius: 1.25rem;
+  border-bottom-right-radius: 0;
+  text-align: left;
+  display: inline-block;
+  margin-left: 2.5rem;
+  min-width: 2.5rem;
+}
+
+.from-user .message-inner p {
+  margin: 0.3125rem;
+  padding: 0 0.9375rem;
+}
+
+.from-user .message-inner:before, .from-user .message-inner:after {
+  content: "";
+  position: absolute;
+}
+
+
+.from-user .message-inner:before {
+  z-index: -2;
+  bottom: -0.375rem;
+  right: 0;
+  height: 0.375rem;
+  width: 0.5rem;
+  background: #1cb3a0;
+}
+
+.from-user .message-inner:after {
+  z-index: -1;
+  bottom: -0.5rem;
+  right: 0;
+  height: 0.5rem;
+  width: 0.5rem;
+  background: #fff;
+  border-top-right-radius: 1.25rem;
+}
+
+.from-watson .message-inner {
+  position: relative;
+  border-radius: 1.5625rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  letter-spacing: 0.015rem;
+  line-height: 1.3125rem;
+  background: var(--chat-message-background-color);
+  border-radius: 1.25rem;
+  border-bottom-left-radius: 0;
+  text-align: left;
+  display: inline-block;
+  margin-right: 2.5rem;
+  min-width: 2.5rem;
+}
+
+.from-watson.latest .message-inner {
+  color: var(--text-color);
+}
+
+.from-watson p {
+  margin: 0.3125rem;
+  padding: 0 1.25rem;
+}
+
+.from-watson{
+  position: relative;
+}
+
+.from-watson.latest.top p:before {
+  content: ".";
+  color: transparent;
+  background-color: transparent;
+  background-size: 0.3125rem 1.3125rem;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 2;
+  left: 0.4375rem;
+  width: 0.3125rem;
+  height: 1.3125rem;
+  line-height: 1.3125rem;
+}
+
+#textInput {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--text-color);
+  letter-spacing: 0.015rem;
+  line-height: 1.3125rem;
+  height: 2.5rem;
+  max-width: 100%;
+  padding-left: 0.125rem;
+  margin-bottom: -0.125rem;
+  font-family: Helvetica Neue for IBM, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+}
+
+#textInput.underline {
+  border-bottom: 3px solid var(--chat-underline-color)
+}
+
+::-webkit-input-placeholder {
+  color: #959595;
+}
+
+::-moz-placeholder {
+  color: #959595;
+  opacity:  1;
+}
+
+input:-moz-placeholder {
+  color: #959595;
+  opacity:  1;
+}
+
+:-ms-input-placeholder {
+  color: #959595;
+}
+
+::-ms-clear {
+  display: none;
+}
+
+.inputOutline {
+  display: block;
+  border-bottom: 0.0625rem solid var(--chat-underline-color);
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+#textInputDummy {
+  position:absolute;
+  white-space:pre;
+  top: 0;
+  left: -1000%;
+  opacity: 0;
+}
+
+#payload-column {
+  font-family: Monaco, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  line-height: 1.125rem;
+  background-color: #23292A;
+  color: #fff;
+  overflow-x: auto;
+
+  width: 45%;
+  max-width: 32.0625rem;
+  min-width: 29.6875rem;
+}
+
+#payload-column.full {
+  width: 100%;
+  max-width: none;
+  min-width: initial;
+}
+
+#payload-column .header-text, #payload-column #payload-initial-message {
+  font-family: Helvetica Neue for IBM, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+  color: #9E9E9E;
+  letter-spacing: 0.01875rem;
+  padding: 0.5rem;
+  padding-left: 2.5rem;
+  background: #383D3E;
+}
+
+.hide {
+  display: none;
+}
+
+.payload .line-numbers, .payload .payload-text {
+  padding: 0.5rem;
+}
+
+.line-numbers {
+  width: 2rem;
+  color: #898989;
+  text-align: right;
+}
+
+pre {
+  margin: 0;
+  word-wrap: normal;
+}
+
+.string {
+  color: #54EED0;
+}
+
+.boolean, .null, .number {
+  color: #CE8EFF;
+}
+
+.key {
+  color: #66B7FF;
+}
+
+html{
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 1000px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+
+  .chat-column {
+    padding-top: 4rem;
+  }
+
+  #payload-column {
+    width: 0;
+    max-width: none;
+    min-width: initial;
+  }
+}
+
+/* IBM Design fonts https://github.ibm.com/Design/fonts */
+@font-face {
+  font-family: 'Helvetica Neue for IBM';
+  src: url('../fonts/light/h-n-light.eot?') format('eot'),
+  url('../fonts/light/h-n-light.woff2') format('woff2'),
+  url('../fonts/light/h-n-light.woff') format('woff'),
+  url('../fonts/light/h-n-light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica Neue for IBM';
+  src: url('/fonts/light-italic/h-n-light-italic.eot?') format('eot'),
+  url('/fonts/light-italic/h-n-light-italic.woff2') format('woff2'),
+  url('../fonts/light-italic/h-n-light-italic.woff') format('woff'),
+  url('../fonts/light-italic/h-n-light-italic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Helvetica Neue for IBM';
+  src: url('../fonts/roman/h-n-roman.eot?') format('eot'),
+  url('../fonts/roman/h-n-roman.woff2') format('woff2'),
+  url('../fonts/roman/h-n-roman.woff') format('woff'),
+  url('../fonts/roman/h-n-roman.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica Neue for IBM';
+  src: url('../fonts/roman-italic/h-n-roman-italic.eot?') format('eot'),
+  url('../fonts/roman-italic/h-n-roman-italic.woff2') format('woff2'),
+  url('../fonts/roman-italic/h-n-roman-italic.woff') format('woff'),
+  url('../fonts/roman-italic/h-n-roman-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Helvetica Neue for IBM';
+  src: url('../fonts/medium/h-n-medium.eot?') format('eot'),
+  url('../fonts/medium/h-n-medium.woff2') format('woff2'),
+  url('../fonts/medium/h-n-medium.woff') format('woff'),
+  url('../fonts/medium/h-n-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica Neue for IBM';
+  src: url('../fonts/medium-italic/h-n-medium-italic.eot?') format('eot'),
+  url('../fonts/medium-italic/h-n-medium-italic.woff2') format('woff2'),
+  url('../fonts/medium-italic/h-n-medium-italic.woff') format('woff'),
+  url('../fonts/medium-italic/h-n-medium-italic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Helvetica Neue for IBM';
+  src: url('../fonts/bold/h-n-bold.eot?') format('eot'),
+  url('../fonts/bold/h-n-bold.woff2') format('woff2'),
+  url('../fonts/bold/h-n-bold.woff') format('woff'),
+  url('../fonts/bold/h-n-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica Neue for IBM';
+  src: url('../fonts/bold-italic/h-n-bold-italic.eot?') format('eot'),
+  url('../fonts/bold-italic/h-n-bold-italic.woff2') format('woff2'),
+  url('../fonts/bold-italic/h-n-bold-italic.woff') format('woff'),
+  url('../fonts/bold-italic/h-n-bold-italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* IBM Icons */
+@font-face {
+  font-family: 'ibm-icons';
+  src:url('../fonts/ibm-icons.eot?ytcz1z') format('eot'),
+  url('../fonts/ibm-icons.eot?ytcz1z#iefix') format('embedded-opentype'),
+  url('../fonts/ibm-icons.ttf?ytcz1z') format('truetype'),
+  url('../fonts/ibm-icons.woff?ytcz1z') format('woff'),
+  url('../fonts/ibm-icons.svg?ytcz1z#ibm-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* IBM glyphs */
+@font-face {
+  font-family: 'ibm-glyph';
+  src:url('../fonts/ibm-glyphs.eot?1b8643') format('eot'),
+  url('../fonts/ibm-glyphs.eot?1b8643#iefix') format('embedded-opentype'),
+  url('../fonts/ibm-glyphs.ttf?1b8643') format('truetype'),
+  url('../fonts/ibm-glyphs.woff?1b8643') format('woff'),
+  url('../fonts/ibm-glyphs.svg?1b8643#ibm-glyph') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html{
+  --background-color: #152935;
+  --chat-border-color: #00b4a0;
+  --chat-underline-color: #264a60;
+  --chat-message-background-color: #5596e6;
+  --text-color: white;
+}
+body{
+  background-color: var(--background-color) !important;
+}
+.userPhoto{
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+}
+#cellyPhoto {
+  left: -172px;
+  top: -5px;
+  background-image: url(../img/CellyAvatar/Watson_Avatar_Pos_BlueTeal_RGB.png);
+  background-repeat: no-repeat;
+  background-size: 85%;
+  background-position: 50%;
+}
+#userPhoto {
+  right: -172px;
+  bottom: -5px;
+  background-size: 100%;
+}
+.chat-column {
+  border: 5px solid var(--chat-border-color);
+  border-radius: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: calc( 100% - 20px );
+  background-color: var(--background-color);
+  position: relative;
+}
+.triangle{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+}
+#leftPoint{
+  border-width: 0px 40px 25px 0;
+  border-color: transparent var(--chat-border-color) transparent transparent;
+  left: -40px;
+  top: 80px;
+}
+#leftPoint div{
+  border-width: 0px 32px 15px 0;
+  border-color: transparent var(--background-color) transparent transparent;
+  position: relative;
+  right: -8px;
+  top: 2px;
+}
+#rightPoint{
+  border-width: 25px 0px 0px 40px;
+  border-color: transparent transparent transparent var(--chat-border-color);
+  right: -40px;
+  bottom: 60px;
+}
+#rightPoint div{
+  border-width: 15px 0px 0px 32px;
+  border-color: transparent transparent transparent var(--background-color);
+  position: relative;
+  right: 40px;
+  bottom: 17px;
+}
+
+label.inputOutline {
+    text-align: center;
+    margin: 0px 20px 0px 20px;
+}
+#textInput {
+  text-align: center;
+}
+#restartChat {
+  position: absolute;
+  top: 10px;
+  right: 100px;
+  font-size: 12px;
+  padding: 0px;
+  border-radius: 50px;
+}
+#feedbackButtons{
+  display: none;
+  text-align: center;
+}
+#feedbackButtons button {
+  background-color: var(--chat-border-color);
+  color: var(--text-color);
+  border-color: var(--chat-border-color);
+}
+.AnswerBtn{
+  position: relative;
+  bottom: 10px;
+  border-radius: 50px;
+  margin: 0px 5px;
+}
+#BtnNo {
+  background-color: #e71d32 !important;
+  border-color: #e71d32 !important;
+}
+#BtnYes {
+  background-color: #4b8400 !important;
+  border-color: #4b8400 !important;
+}
+#scrollingChat::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: var(--background-color);
+}
+
+#scrollingChat::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #5495e6;
+  background-image: linear-gradient(to right,var(--background-color) 0%,var(--background-color) 20%,#5495e6 20%,#5495e6);
+}
+
+#scrollingChat:hover::-webkit-scrollbar-thumb
+{
+  background-image: none;
+}
+#lightSwitch{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--text-color);
+}
+#cellyVoice{
+  position: absolute;
+  top: 143px;
+  left: -113px;
+  width: 40px;
+  height: 18px;
+  color: var(--text-color);
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 11px;
+  cursor: pointer;
+}
+#cellyVoice span{
+  position: absolute;
+  height: 100%;
+  top: 1px;
+}
+#cellyVoice .voiceOff{
+  right: 42px;
+}
+#cellyVoice .voiceOn{
+  left: 44px;
+}
+#cellyVoice .voiceSwitch{
+  top: 0px;
+  width: calc( 100% /2);
+  background-image: radial-gradient(#f4f4f4 20%, var(--chat-message-background-color) 100%);
+  border-radius: 8px;
+  right: 0px;
+  transition-duration: .2s;
+  transition-timing-function: ease-out;
+}
+div.from-watson:hover #repeat{
+  margin-left: -35px;
+  opacity: 1;
+  transform: rotate(360deg);
+}
+#repeat{
+  position: absolute;
+  top: calc( 50% - 6px );
+  margin-left: -60px;
+  font-size: 20px;
+  color: var(--text-color);
+  opacity: 0;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}

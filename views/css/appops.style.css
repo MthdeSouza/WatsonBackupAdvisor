@@ -1,0 +1,21 @@
+
+html{
+  --background-color: #f4ede6;
+  --chat-border-color: #6c8bae;
+  --chat-underline-color: #9f69f4;
+  --chat-message-background-color: #c5a3ed;
+  --text-color: black;
+}
+#cellyVoice .voiceSwitch{
+  top: 0px;
+  width: calc( 100% /2);
+  background-image: radial-gradient(#c0d2e4 20%, #030006 100%);
+  border-radius: 8px;
+  right: 0px;
+  transition-duration: .2s;
+  transition-timing-function: ease-out;
+}
+
+#headerExternal{
+background-color: white;
+}

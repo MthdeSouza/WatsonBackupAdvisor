@@ -1,0 +1,28 @@
+<EntityDescriptor entityID="https://askcelly.w3ibm.mybluemix.net/" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC0jCCAboCCQCWu/Ql3hEkVzANBgkqhkiG9w0BAQsFADArMSkwJwYDVQQDDCBh
+c2tjZWxseXRlc3QudzNpYm0ubXlibHVlbWl4Lm5ldDAeFw0xODAxMzExMTQ3MjNa
+Fw0yODAxMzExMTQ3MjNaMCsxKTAnBgNVBAMMIGFza2NlbGx5dGVzdC53M2libS5t
+eWJsdWVtaXgubmV0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxZ/Y
+8BNjgtJxPwkq+cGvCpKQukgWFd0UixRK1Z7J9CBNASPFfDq3i5jhouAqaOUhfpo+
+vL6E1t+gf/RwKeCaPZd+1U2T36aaG6/sJkEwMUkecJ6uDiWsym1cj64zoGe2ULS+
+Q8deI6zVeVGUB5w01XWKcE7kgXjJwb/xExn9irMfMmSxC/XEES7y9UAF/tiV4OMQ
+8qMcWQvK0KJ/XgRZYgshMmItscmr+fmmrly8q0DGHdBZjNxBRKnAg6lOw6oiLSxA
++V1tVDOF3wtCTfDAW9sBP5tQgTRxdl6QQcROGHEuDz0Z4OC9MLHI6buAoD0rU6oh
+pyO9CFKiSYOGYB3SyQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQCX5uaqAkTPHqeG
+3MoRpD9YXD3QfbFArpfIZBQHH/SCC2aC9P4InkYZNECQ8qs3tc7eNR8xrn4e4Z9t
+827EBoLbp71m+WsxStI3Y8tEwG89to4DZvHORSe2AXJ334dMNjZo3GoLsgZ2SAyy
+XF1vc0hNJvNEIj5gNd52qdxhuY9gjtevmjdfNqNEI3LcUAoE3sonavYYQnDIOVfQ
+ZDfTIuRkEVyt8Oh7ZgBSxJqanpkJzSM0eCGOkNmph0Edo/Gy1oJAJ6qXtrv/6PnE
+iDAt5ItkEru1Hu2yxB6AdzZs2cZhSKezMr0lQd8qhOkGE4V4GlNhO+COCl4rs13V
+zRmXP4Yx</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://askcelly.w3ibm.mybluemix.net/login/callback/logout"/>
+    <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://askcelly.w3ibm.mybluemix.net/login/callback/postResponse" index="0"/>
+  </SPSSODescriptor>
+</EntityDescriptor>
